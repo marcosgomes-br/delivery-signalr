@@ -15,15 +15,9 @@ public class PedidoHub : Hub
         await Clients.All.SendAsync("ReceiveMessage", pedido);
     }
 
-    public async Task Login(string usuario, string grupoUsuario)
-    {
-        await Groups.AddToGroupAsync(Context.ConnectionId, grupoUsuario);
-        await Clients.Group("operadorEmpilhadeira").SendAsync()
-    }
-
     public async Task FinalizarPedido(int id)
     {
-        await Clients.Client(Context.ConnectionId).SendAsync("PedidoPronto");
+        await Clients.Group(id.ToString()).SendAsync("PedidoPronto");
     }
 
     public async Task StatusLoja()

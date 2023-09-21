@@ -1,8 +1,15 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import { HubConnectionBuilder, LogLevel, HubConnection } from "@microsoft/signalr";
 
 const ClientePage: React.FC = () => {
+
+  /*useEffect(() => {
+    const audio = new Audio('./assets/sound.mp3');
+    debugger;
+    audio.play();
+  }, []);*/
+
   const produtos = [
     {id: 1, nome: 'Brigadeiro', preco: 3.70, img: "https://i.panelinha.com.br/i1/228-q-2859-brigadeiro.webp"},
     {id: 2, nome: 'Torta de Limão', preco: 5.90, img: "https://www.oetker.com.br/Recipe/Recipes/oetker.com.br/br-pt/baking/image-thumb__228596__RecipeDetailsLightBox/torta-de-limao.jpg"},
